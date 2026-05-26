@@ -1,0 +1,102 @@
+Day 7 — Tabs & Apps in Salesforce
+
+Topics covered: Tab types, App types, OAuth 2.0, AppExchange, creating Custom & Connected Apps
+
+📎 My handwritten notes are attached in this repo — see Day7_Notes.pdf
+🖥️ Screenshots from my Salesforce Developer Org are attached — see the /screenshots folder
+
+🗂️ Tabs
+Tabs are the primary navigation elements in Salesforce. They appear at the top of every app and are managed by users (in-app) and Admins (via Setup).
+TypeDescriptionExampleStandardDefault tabs created by SalesforceAccounts, ContactsCustomCreated by Admin for Custom ObjectsStudent__c, Order__cWebEmbeds an external website inside Salesforcegoogle.comVisualforceDisplays a custom page built by a developerCustom UI pagesLightning ComponentOpens a Lightning ComponentCustom App Pages
+
+⚠️ Important: Custom Objects are not visible in any App unless a Custom Tab is created for them.
+
+Tab Visibility Options (per Profile)
+
+Default ON — Tab is visible automatically
+Default OFF — Tab exists but the user must enable it manually
+Hidden — Tab is not visible to that profile
+
+How to Create Tabs (Setup → Quick Find → "Tabs")
+
+Custom Tab → Choose Object → Choose Style → Set Profile visibility → Assign to Apps → Save
+Web Tab → Choose layout → Give Label → Enter URL → Set visibility → Save
+Visualforce Tab → Choose VF Page → Give Label → Set visibility → Save
+Lightning Component Tab → Choose Component → Give Label → Set visibility → Save
+
+
+📦 Apps
+Apps are collections of tabs grouped together for a specific business purpose. Accessible from the App Launcher (9 dots, top-left).
+Types of Apps
+1. Standard Apps
+
+Pre-built by Salesforce (Sales, Service, Marketing)
+Cannot be deleted — only hidden
+Tabs can be added or removed
+
+2. Custom Apps
+
+Created by Admins for specific business teams
+Can be created, edited, and deleted
+Example: HR App → HR Team → Employee__c, Payroll__c
+
+3. Connected Apps
+
+Connect third-party tools to Salesforce via OAuth 2.0
+No password sharing — a token is generated instead
+Example: Google Workspace, Microsoft Teams
+
+4. Packaged Apps
+
+Installed from AppExchange (Salesforce's marketplace)
+Managed Package — Code is locked/protected
+Unmanaged Package — Code is open and editable
+
+
+🔐 OAuth 2.0 — How It Works
+User → Clicks Connect → Third-Party App → Asks Permission
+→ User Approves → Token Generated → Secure Access Granted
+OAuth 2.0 is a secure way to give an external app permission to access your Salesforce data without sharing your password.
+
+🛠️ Creating Apps
+Custom App (Setup → App Manager → New Lightning App)
+
+Give App Details — Name, Description, Logo, Style
+Set App Options — Navigation, Form Factor
+Add Utility Bar (optional)
+Add Navigation Items (tabs)
+Assign User Profiles and set visibility:
+
+Visible — App appears in their App Launcher
+Default ON — App opens automatically on login
+Not assigned → Profile cannot see the app
+
+
+
+Connected App (Setup → App Manager → New External Client App)
+
+Give Name (API Name auto-generates) and Email
+Enable OAuth Settings
+Set Callback URL and OAuth Scopes
+Save and verify under External Client Apps
+
+Packaged App (AppExchange)
+
+Visit appexchange.salesforce.com
+Search and click Get it Now
+Log in with Salesforce credentials
+Choose: Admins Only / All Users / Specific Profiles
+Install → Approve → Continue
+Verify under Setup → Installed Packages
+
+
+💡 Key Takeaways
+
+A Custom Object is invisible in any app without a corresponding Custom Tab
+Standard Apps can be hidden but never deleted
+OAuth 2.0 enables secure third-party integrations without password sharing
+AppExchange is Salesforce's equivalent of an app marketplace — with managed (locked) and unmanaged (editable) packages
+
+
+📁 Attachments
+FileDescriptionDay7_Notes.pdfMy handwritten notes for Day 7screenshots/Screenshots from my Salesforce Developer Org showing tabs and apps in action
